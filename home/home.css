@@ -1,0 +1,50 @@
+                                body{
+  background: #2B3134;
+  color: #777;
+  text-align: center;
+  width: 100%;
+  margin: 0px auto;
+  height: 100%;
+  display: block; 
+  overflow: hidden;
+}
+h1{
+  margin: 1em 0;
+  border-bottom: 1px dashed;
+  padding-bottom: 1em;
+  font-weight: lighter;
+}
+p{
+  font-style: italic;
+}
+.loader{
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+.titleimg{
+  margin: 0 0 2em;
+  height: 100px;
+  width: 80%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect{
+  fill: #AA9999;
+}                              
+                            
+                            
+                            
