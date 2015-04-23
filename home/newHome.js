@@ -149,7 +149,7 @@ function displayfeed(result)
     descriptions.push(description);
     contents.push(content);
     links.push(link);
-  } 
+  }
   else
   {
     alert('Error fetching feeds!');
@@ -179,15 +179,15 @@ var render = function ()
       if (feeder[k].indexOf('Technology') > - 1)
       {
         image = techImage;
-      } 
+      }
       else if (feeder[k].indexOf('Music') > - 1)
       {
         image = musicImage;
-      } 
+      }
       else if (feeder[k].indexOf('Outdoors') > - 1)
       {
         image = outdoorsImage;
-      } 
+      }
       else
       {
         image = defaultImage;
@@ -254,28 +254,36 @@ var update = function (modifier) /*NEED TO CHANGE Y TO AN ARRAY ALLOWING EACH CO
   if (updateable)
   {
     /*key control*/
-    if (37 in keysDown)
+    if (37 in keysDown && x>0)
     {
       /* Player holding left*/
       x = x - 1;
       updateable = false;
       openable = true;
+      if(y+1>=numProps(titles[x]))
+      {
+          y = numProps(titles[x])-1;
+      }
     }
-    if (39 in keysDown)
+    if (39 in keysDown && x+1<numProps(titles))
     {
       /* Player holding right*/
       x = x + 1;
       updateable = false;
       openable = true;
+      if(y+1>=numProps(titles[x]))
+      {
+          y = numProps(titles[x])-1;
+      }
     }
-    if (38 in keysDown)
+    if (38 in keysDown && y>0)
     {
       /* Player holding up*/
       y = y - 1;
       updateable = false;
       openable = true;
     }
-    if (40 in keysDown)
+    if (40 in keysDown && y+1<numProps(titles[x]))
     {
       /*Player holding down*/
       y = y + 1;
@@ -295,19 +303,19 @@ var update = function (modifier) /*NEED TO CHANGE Y TO AN ARRAY ALLOWING EACH CO
     if (oldx < (x * spacingx) - modifier)
     {
       oldx = oldx + modifier;
-    } 
+    }
     else if (oldx > (x * spacingx) + modifier)
     {
       oldx = oldx - modifier;
-    } 
+    }
     else if (oldy < (y * spacingy) - modifier)
     {
       oldy = oldy + modifier;
-    } 
+    }
     else if (oldy > (y * spacingy) + modifier)
     {
       oldy = oldy - modifier;
-    } 
+    }
     else
     {
       updateable = true;
