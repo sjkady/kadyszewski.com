@@ -128,7 +128,7 @@ function displayfeed(result)
       feeder.push(channel.getElementsByTagName('title') [0].firstChild.nodeValue);
     }
     var items = result.xmlDocument.getElementsByTagName('item');
-    for (var j = 0; j < items.length; j++)
+    for (j = 0; j < items.length; j++)
     {
       /*get from xml*/
       var item = items[j];
@@ -136,7 +136,7 @@ function displayfeed(result)
       link.push(item.getElementsByTagName('link') [0].firstChild.nodeValue);
       var div = document.createElement('div');
       /*remove html tags*/
-      div.innerHTML = item.getElementsByTagName('description') [0].firstChild.nodeValue
+      div.innerHTML = item.getElementsByTagName('description') [0].firstChild.nodeValue;
       description.push(div.textContent || div.innerText || '');
       /*while (match = getlinks.exec(item.getElementsByTagName('content:encoded')[0].firstChild.nodeValue)) {
 					link.push(match);
@@ -154,7 +154,7 @@ function displayfeed(result)
   {
     alert('Error fetching feeds!');
   }
-  ran = true
+  ran = true;
 }
 var render = function ()
 {
@@ -175,7 +175,7 @@ var render = function ()
     for (var t = 0; t < numProps(titles[k]); t++)
     {
       ctx.save();
-      ctx.globalAlpha = 1 / ((spacingx * (k + 1) - oldx) / 100) / ((spacingy * (t + 0.01) - oldy) / 100)
+      ctx.globalAlpha = 1 / ((spacingx * (k + 1) - oldx) / 100) / ((spacingy * (t + 0.01) - oldy) / 100);
       if (feeder[k].indexOf('Technology') > - 1)
       {
         image = techImage;
@@ -202,17 +202,17 @@ var render = function ()
         ctx.globalAlpha = 1;
         ctx.font = 'bold ' + size4 + 'px Lato';
         var writer = strSplitOnLength(descriptions[k][t], Math.round(ctx.canvas.width / 15));
-        for (var h = 0; h < writer.length; h++)
+        for (var f = 0; f < writer.length; f++)
         {
-          if (h > 0)
+          if (f > 0)
           {
-            writer[h] = writer[h].replace('undefined', '');
+            writer[f] = writer[f].replace('undefined', '');
           }
-          ctx.fillText(writer[h], Math.round(ctx.canvas.width / 5), Math.round(ctx.canvas.height / 4 + (size4 * h)));
+          ctx.fillText(writer[f], Math.round(ctx.canvas.width / 5), Math.round(ctx.canvas.height / 4 + (size4 * f)));
         }
         ctx.fillText(feeder[x], Math.round(ctx.canvas.width * 0.35) - feeder[x].length, Math.round(ctx.canvas.height * 0.9));
-        ctx.fillText('From: ' + links[x][y], Math.round(ctx.canvas.width / 5), Math.round(ctx.canvas.height / 4 + (size4 * h) + size4));
-        ctx.fillText('(Enter to open in new tab, must allow pop-ups)', Math.round(ctx.canvas.width / 5), Math.round(ctx.canvas.height / 4 + (size4 * h) + size4 * 2));
+        ctx.fillText('From: ' + links[x][y], Math.round(ctx.canvas.width / 5), Math.round(ctx.canvas.height / 4 + (size4 * f) + size4));
+        ctx.fillText('(Enter to open in new tab, must allow pop-ups)', Math.round(ctx.canvas.width / 5), Math.round(ctx.canvas.height / 4 + (size4 * f) + size4 * 2));
         ctx.restore();
       }
       ctx.restore();
@@ -224,7 +224,7 @@ var render = function ()
   ctx.drawImage(aupdImage, ctx.canvas.width - 110, ctx.canvas.height - 60);
   ctx.drawImage(aforImage, ctx.canvas.width - 70, ctx.canvas.height - 60);
   ctx.restore();
-}
+};
 function strSplitOnLength(data, your_desired_width)
 {
   if (data.length <= 0)
@@ -298,7 +298,7 @@ var update = function (modifier) /*NEED TO CHANGE Y TO AN ARRAY ALLOWING EACH CO
       openable = false;
     }
   }
-  if (updateable == false) /*If you change this to calculate based on the remainder you should get much more consistent results idiot*/
+  if (updateable === false) /*If you change this to calculate based on the remainder you should get much more consistent results idiot*/
   {
     if (oldx < (x * spacingx) - modifier)
     {
@@ -321,7 +321,7 @@ var update = function (modifier) /*NEED TO CHANGE Y TO AN ARRAY ALLOWING EACH CO
       updateable = true;
     }
   }
-}
+};
 function numProps(obj)
 {
   var c = 0;
@@ -377,4 +377,4 @@ function init()
 window.onload = function ()
 {
   google.setOnLoadCallback(init());
-}
+};
